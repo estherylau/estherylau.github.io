@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>This is an iframe testing page</title>
+		<script type="text/javascript">
+			function sendMessageToParent() {
+				console.log("trigger!");
+				window.parent.postMessage({
+				    'message': {
+				    	'submit': {
+				    		'part': 2,
+					    	'complete': true,
+					    	'state': {'type': 'correct', 'isTrusted': true, 'caseDiffers': false, 'computerTime': '2022-03-28T18:13:58.623Z', 'quoteDiffers': false, 'whitespaceDiffers': false, 'stringDiffHighlight': null}
+				    	},
+				    	'resize': {
+				    		'height': '600',
+				    		'width': '900',
+				    	},
+				    	'doneLoading': true,
+				    },
+				}, "*"); // Should specify targin origin instead of using *
+			}
+
+			setTimeout(() => {
+				sendMessageToParent();
+			}, 10000);
+		</script>
+	</head>
+	<body>
+		<p>I am a webpage.</p>
+		<button onclick="sendMessageToParent()" href="#" >Click Me </button>
+	</body>
+</html>
