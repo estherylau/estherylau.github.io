@@ -6,7 +6,7 @@
 		<title>This is an iframe testing page</title>
 		<script type="text/javascript">
 			function sendMessageToParent() {
-				console.log("trigger!");
+				console.log("trigger from an outside source!");
 				window.parent.postMessage({
 				    'message': {
 				    	'submit': {
